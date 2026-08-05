@@ -64,6 +64,7 @@
         <div class="tv-bezel">
           <div class="tv-screen">
             <video autoplay muted loop playsinline>
+              <video autoplay muted loop playsinline>
   <source src="https://res.cloudinary.com/injhstyj/video/upload/v1785906611/fondo_mvbhwp.mp4" type="video/mp4" />
 </video>
             <div class="screen-sheen"></div>
@@ -154,7 +155,7 @@
       <p style="color:var(--text-dim); max-width:560px; margin:14px auto 0;">Tres pasos simples y ya estás viendo todo el contenido que quieras.</p>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 900px; margin: 0 auto;">
+    <div class="como-funciona-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 900px; margin: 0 auto;">
 
       <!-- Paso 1 -->
       <div class="step-card" style="text-align:center; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 32px 20px; position: relative; overflow: hidden;">
@@ -194,7 +195,7 @@
     </div>
 
     <!-- Contenedor de 2 columnas -->
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 900px; margin: 0 auto; align-items: stretch;">
+    <div class="dispositivos-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 900px; margin: 0 auto; align-items: stretch;">
 
       <!-- COLUMNA IZQUIERDA: ICONOS CON TOOLTIP AL HOVER -->
       <div style="background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 30px 20px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; align-content: center;">
@@ -677,7 +678,7 @@
 
 <!-- Script principal -->
 <script src="js/main.js" defer></script>
-  <script>
+<script>
   // Rastreo de eventos de conversión para GA4
   document.addEventListener('DOMContentLoaded', function() {
     function trackEvent(eventName, params = {}) {
