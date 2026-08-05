@@ -952,12 +952,16 @@ footer {
    ============================================================ */
 
 @media (max-width: 880px) {
+  html, body { overflow-x: hidden; max-width: 100%; }
+
   .hero-grid {
     grid-template-columns: 1fr !important;
   }
+  /* Texto primero, TV/pantalla después (antes salía la TV arriba) */
   .tv-wrap {
-    order: -1 !important;
+    order: 1 !important;
     margin-bottom: 0 !important;
+    margin-top: 32px !important;
   }
   .logo-grid { grid-template-columns: repeat(3, 1fr) !important; }
   .benefits { grid-template-columns: repeat(2, 1fr); }
@@ -974,11 +978,38 @@ footer {
   .hero p.sub { font-size: 18px; }
   .brand-logo-img { height: 35px; }
   .nav-cta { font-size: 11px; padding: 5px 12px; }
+
+  /* "¿Cómo empezar con Slam TV?" — de 3 columnas apretadas a 1 columna legible */
+  .como-funciona-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    max-width: 420px !important;
+  }
+
+  /* "Disfruta en todos tus dispositivos" — de 2 columnas desproporcionadas a 1 columna */
+  .dispositivos-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    max-width: 420px !important;
+  }
+
+  /* Botón flotante de WhatsApp: asegurar que siempre quede dentro del viewport */
+  .float-wa {
+    right: 14px !important;
+    bottom: 16px !important;
+    font-size: 12px !important;
+    padding: 12px 14px !important;
+  }
 }
 
 @media (max-width: 520px) {
   .benefits { grid-template-columns: 1fr; }
   .logo-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  .como-funciona-grid,
+  .dispositivos-grid {
+    max-width: 100% !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
