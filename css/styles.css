@@ -993,6 +993,26 @@ footer {
     max-width: 420px !important;
   }
 
+  /* Íconos de dispositivos: de 4 columnas (se cortaban) a 3, para que quepan completos */
+  .device-icons-box {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 14px !important;
+    justify-items: center !important;
+  }
+
+  /* Badges del hero (⚡ Respuesta inmediata, etc.): el nowrap forzaba el hero
+     a ser más ancho que la pantalla, y por tener overflow:hidden se recortaban
+     tanto el texto como la TV. Se apilan y permiten salto de línea. */
+  .cta-badges {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  .badge {
+    white-space: normal !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+  }
+
   /* Botón flotante de WhatsApp: asegurar que siempre quede dentro del viewport */
   .float-wa {
     right: 14px !important;
