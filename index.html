@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6ZZJ3K2EB2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6ZZJ3K2EB2');
+</script>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -668,5 +677,38 @@
 
 <!-- Script principal -->
 <script src="js/main.js" defer></script>
+  <script>
+  // Rastreo de eventos de conversión para GA4
+  document.addEventListener('DOMContentLoaded', function() {
+    function trackEvent(eventName, params = {}) {
+      if (typeof gtag === 'function') {
+        gtag('event', eventName, params);
+        console.log('Evento enviado a GA:', eventName, params);
+      }
+    }
+
+    // Clics en enlaces de WhatsApp
+    const waLinks = document.querySelectorAll('a[href*="wa.me"]');
+    waLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        let action = 'whatsapp_click';
+        if (this.classList.contains('btn-primary')) action = 'whatsapp_hero';
+        else if (this.classList.contains('plan-btn')) action = 'whatsapp_plan';
+        else if (this.classList.contains('float-wa')) action = 'whatsapp_float';
+        else if (this.classList.contains('btn-whatsapp')) action = 'whatsapp_cta';
+        else if (this.classList.contains('nav-cta')) action = 'whatsapp_header';
+        trackEvent(action, { 'link_text': this.innerText.trim() });
+      });
+    });
+
+    // Clics en CTAs internos (ej. enlaces de navegación)
+    const ctaLinks = document.querySelectorAll('a[href*="#"]:not([href*="wa.me"])');
+    ctaLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        trackEvent('cta_click', { 'link_text': this.innerText.trim(), 'href': this.getAttribute('href') });
+      });
+    });
+  });
+</script>
 </body>
 </html>
